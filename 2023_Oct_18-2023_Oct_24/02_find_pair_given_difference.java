@@ -1,5 +1,6 @@
 import java.util.*;
 
+// https://practice.geeksforgeeks.org/problems/find-pair-given-difference1559/1?page=1&category[]=Binary%20Search&category[]=Divide%20and%20Conquer&sprint=94ade6723438d94ecf0c00c3937dad55&sortBy=difficulty
 class Solution
 {
     public boolean findPair(int arr[], int size, int n)
