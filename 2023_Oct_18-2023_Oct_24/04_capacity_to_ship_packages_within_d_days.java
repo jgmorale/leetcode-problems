@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/submissions/
+
 class Solution {
     public int shipWithinDays(int[] weights, int days) {
         int n = weights.length;
