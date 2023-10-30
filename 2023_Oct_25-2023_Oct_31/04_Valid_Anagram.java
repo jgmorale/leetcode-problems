@@ -16,15 +16,9 @@ class Solution {
 
         for(int i = 0; i < t.length(); i++){
             char c = t.charAt(i);
-            if(!count.containsKey(c)){
-                return false;
-            } else {
-                if (count.get(c) == 0){
-                    return false;
-                } else {
-                    count.put(c, count.get(c) - 1);
-                }
-            }
+            if(!count.containsKey(c)) return false;
+            if (count.get(c) == 0) return false;
+            count.put(c, count.get(c) - 1);
         }
 
         return true;
