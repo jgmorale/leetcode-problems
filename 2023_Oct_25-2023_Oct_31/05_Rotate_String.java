@@ -17,6 +17,6 @@ class Solution {
             if(s.charAt(i) != goal.charAt(n-start+i)) return false;
         }
 
-        return start != -1 ? true : false;
+        return start != -1;
     }
 }

@@ -7,11 +7,7 @@ class Solution {
         Map<Character,Integer> count = new HashMap<Character,Integer>();
         for(int i = 0; i < s.length(); i++){
             char c = s.charAt(i);
-            if(!count.containsKey(c)){
-                count.put(c, 1);
-            } else {
-                count.put(c, count.get(c) + 1);
-            }
+            count.put(c, count.getOrDefault(c, 0) + 1);
         }
 
         for(int i = 0; i < t.length(); i++){
