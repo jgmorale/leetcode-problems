@@ -13,10 +13,8 @@ class Solution {
             if (s.charAt(i) == first && start == -1) start = i;
         }
 
-        if(start != -1){
-            for(int i = 0; i < start; i++){
-                if(s.charAt(i) != goal.charAt(n-start+i)) return false;
-            }
+        for(int i = 0; i < start; i++){
+            if(s.charAt(i) != goal.charAt(n-start+i)) return false;
         }
 
         return start != -1 ? true : false;

@@ -14,7 +14,6 @@ class Solution {
         if(s.length() == 1) return mapping.get(s.charAt(0));
 
         int output = 0;
-        boolean subLast = false;
         for(int i = 0; i < s.length()-1; i++){
             int curr = mapping.get(s.charAt(i));
             int next = mapping.get(s.charAt(i+1));
