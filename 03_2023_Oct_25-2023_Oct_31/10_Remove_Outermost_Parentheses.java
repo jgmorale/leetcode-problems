@@ -2,10 +2,17 @@
 class Solution {
     public String removeOuterParentheses(String s) {
         if(s.length() == 1) return s; // trivial case
-        int i = 0, j = 0, k = 0, count = 0;
+        int i = 0, j = 0, deep = 0;
         String output = "";
-        while(i < j && j < s.length()){
-            
+        while(i < s.length()){
+            if (s.charAt(i) == '('){
+                deep++;
+                if(deep == 1) j = i; 
+            }
+            if (s.charAt(i) == ')') {
+                deep--;
+                if(deep == 0) output += s.substring(j+1,i);
+            }
             i++;
         }
         return output;
