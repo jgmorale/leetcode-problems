@@ -3,7 +3,7 @@ class Solution {
     public String removeOuterParentheses(String s) {
         if(s.length() == 1) return s; // trivial case
         int i = 0, j = 0, deep = 0;
-        String output = "";
+        StringBuilder output = new StringBuilder("");
         while(i < s.length()){
             if (s.charAt(i) == '('){
                 deep++;
@@ -11,10 +11,10 @@ class Solution {
             }
             if (s.charAt(i) == ')') {
                 deep--;
-                if(deep == 0) output += s.substring(j+1,i);
+                if(deep == 0) output.append(s.substring(j+1,i));
             }
             i++;
         }
-        return output;
+        return output.toString();
     }
 }
