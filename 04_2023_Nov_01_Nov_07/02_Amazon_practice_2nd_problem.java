@@ -1,14 +1,14 @@
 /*
  *  String s = '*|**|*|'
- *  startIndexes = [1,1] 
+ *  startIndexes = [1,1] numOfElementsInsideBoxes in a given range (1,3), (1,5)
  *  endIndexes   = [3,5]
  *  output = [0,2]
- *  because the substring from indeces [1,3] is |** which doesnt have a closed box
- *  and the substring from indeces [1,5] is |**|* which has 2 elements in the closed box
+ *  because the substring from indeces [1,3] is '|**' which doesnt have a closed box
+ *  and the substring from indeces [1,5] is '|**|*' which has 2 elements in the closed box
  * 
  *  String s = '*|***|*|*'
- *  startIndexes = [1,1] 
- *  endIndexes   = [5,7] 
+ *  startIndexes = [1,1] '|***|''
+ *  endIndexes   = [5,7] '|***|*|'
  *  output = [3,4]
  */
 
@@ -22,6 +22,12 @@
         List<Integer> compartmentSums = new ArrayList<Integer>();
         boolean isOpen = false;
         int counting = 0;
+
+        // '*|**|*|'
+        // compartmentIndexes = {1,4,6}
+        // compartmentSums = {2,1}
+        // startIndexes = [1,1] numOfElementsInsideBoxes in a given range (1,3), (1,5)
+        // endIndexes   = [3,5]
 
         for(int i = 0; i < s.length(); i++){
             if (s.charAt(i) == '|'){
@@ -38,7 +44,7 @@
 
         for(int i = 0; i < startIndexes.size(); i++){
             int start = binarySearch(compartmentIndexes, startIndexes.get(i));
-            int end = binarySearch(compartmentIndexes, endIndexes.get(i));
+            int end = binarySearch(compartmentIndexes, endIndexes.get(i)); // end = 4 - 1 = 3
             int sum = 0;
             for (int j = start; j < end; j++){
                 sum += compartmentSums.get(j+1);
@@ -67,9 +73,13 @@
 }
 
 class Solution2 {
-    // Quadratic solution
+    // Quadratic solution?
     public List<Integer> getElemInBoxes(String s, List<Integer> startIndeces, List<Integer> endIndices) {
         List<Integer> output = new ArrayList<Integer>();
+
+        //  String s = '*|**|*|'
+        // '|**|*|' '**|*'
+        //  [** , **]
 
         for(int i = 0; i < startIndeces.size(); i++){
             String subStr = s.substring(startIndeces.get(i),endIndices.get(i+1));
@@ -81,6 +91,8 @@ class Solution2 {
             } 
             subStr = subStr.substring(firstIndex, lastIndex);
             String[] splitAns = subStr.split("|");
+            // n = lastIndex - firstIndex + 1
+            // totalnum = n - splitAns.length
             output.add(splitAns.length);
         }
 
