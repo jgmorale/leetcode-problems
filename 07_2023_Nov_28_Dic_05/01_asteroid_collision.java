@@ -1,4 +1,5 @@
 // https://leetcode.com/problems/asteroid-collision/
+import java.util.*;
 
 // Passed 100% of test cases
 class Solution {
