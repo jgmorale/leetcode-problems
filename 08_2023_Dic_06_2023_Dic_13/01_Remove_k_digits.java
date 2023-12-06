@@ -59,7 +59,6 @@ class Solution {
         stack = reverseStack(stack);
 
         Stack<Integer> output = new Stack<Integer>();
-        int z = 0;
         for(int i = 0; i<n; i++){
             int curr = Character.getNumericValue(num.charAt(i));
 
@@ -70,7 +69,7 @@ class Solution {
                 continue;
             }
 
-            // if there is a leading zero, remove previous elements of output stack
+            // if there is a leading zero, remove previous elements of output stack <-- not correct
             while(!output.isEmpty() && k > 0){
                 if (curr != 0) break;
                 output.pop();
@@ -81,7 +80,6 @@ class Solution {
         output = reverseStack(output);
         StringBuilder out = new StringBuilder();
         while(!output.isEmpty()) out.append(output.pop());
-
         return Integer.toString(Integer.valueOf(out.toString()));
     }
 
