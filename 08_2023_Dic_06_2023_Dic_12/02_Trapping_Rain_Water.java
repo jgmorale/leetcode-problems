@@ -17,8 +17,8 @@ class Solution {
             }
 
             if (numElem != 0){
-                min = Math.min(height[i], stack.peek());
-                lastMax = height[i];
+                // min = Math.min(height[i], stack.peek());
+                // lastMax = height[i];
                 if (min == stack.peek()) {
                     // Means that we overcalculated the trapped water, so we readjust
                     trappedWater -= min * numElem;
